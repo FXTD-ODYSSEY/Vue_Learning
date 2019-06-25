@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件处理</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <h2>1. 绑定监听</h2>
+
+        <button @click="test1">test1</button>
+        <button @click="test2('test')">test2</button>
+        <button @click="test3">test3</button>
+        <button @click="test4(13,$event)">test4</button>
+
+        <h2>2. 事件修饰符</h2>
+        
+        <div style="width: 200px;height: 200px;background:red;" @click="test5">
+            <div style="width: 100px;height: 100px;background:blue;" @click.stop="test6"></div>
+        </div>
+
+        <a href="https://www.baidu.com" @click.prevent="test7">去百度</a>
+
+        <h2>3. 按键修饰符</h2>
+       
+        <input type="text" @keyup="test8">
+        <br>
+        <input type="text" @keyup.enter="test9">
+    </div>
+<script>
+// Vue 的数组方法都是经过写了，实现界面更新
+
+vm = new Vue({
+    el:'#demo',
+    methods:{
+        test1(){
+            alert('test');
+        },
+
+        test2(msg){
+            alert(msg);
+        },
+
+        test3(event){
+            alert(event.target.innerHTML);
+        },
+
+        test4(number,event){
+            alert(number + '---' + event.target.innerHTML);
+        },
+        test5(){
+            alert('out');
+        },
+        test6(){
+            alert('inner');
+        },
+        test7(){
+            alert('点击了');
+        },
+        test8(event){
+            if(event.keyCode === 13){
+                alert(event.target.value + ' ' + event.keyCode);
+            }
+        },
+        test9(event){
+            alert(event.target.value + ' ' + event.keyCode);
+        },
+    }
+})
+</script>
+
+</body>
+
+
+
+
+</html>

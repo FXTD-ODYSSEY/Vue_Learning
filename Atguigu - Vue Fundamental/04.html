@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class 与 style 绑定</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    
+    <style>
+    
+    .aClass{
+        color:red;
+    }
+    .bClass{
+        color:blue;
+    }
+    .cClass{
+        font-size:30px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="demo">
+       <h2>1. class 绑定  :class='xxx'</h2>
+
+        <p class="cClass" :class="a">字符串</p>
+        <p :class="{aClass:isA,bClass:isB}">对象</p>
+        <p :class="['aClass','cClass']">数组</p>
+
+
+       <h2>2. style 绑定</h2>
+        <p :style="{color:activeColor,fontsize:fontSize + 'px'}"> style 样式</p>
+        
+        <button @click="update">class切换按钮</button>
+
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:"#demo",
+        data:{
+            a:'aClass',
+            isA:true,
+            isB:false,
+            activeColor:'red',
+            fontSize:20,
+        },
+        methods:{ 
+            update(){
+                this.a = 'bClass'
+                this.isA = this.isA === false ? true : false
+                this.isB = this.isB === false ? true : false
+                this.activeColor = 'green'
+                this.fontSize = 50
+            }
+        }
+    })
+</script>
+
+
+</html>
