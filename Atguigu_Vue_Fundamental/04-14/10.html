@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单输入绑定</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+
+
+<!--
+1.vue对象的生命周期
+1）.初始化显示
+*beforecreate（）
+*created（）
+*beforeMount（）
+*mounted（）
+2）.更新显示：this.xxx=value
+*beforeUpdate（）
+*updated（）
+3）.销段vue实例：vm.Sdestory（）
+*beforeDestory（）
+*destoryed（）
+2.常用的生命周期方法
+mounted（）：发送ajax请求，启动定时器等异步在务beforeDestory（）：做收尾工作，如：清除定时器 
+-->
+
+<body>
+    <div id="demo">
+        <button @click="destroyVM">destroy vm</button>
+        <p v-show="isShow"> l0v0.com </p>
+    </div>
+<script>
+const vm = new Vue({
+    el:'#demo',
+    data:{
+        isShow:true,
+    },
+    mounted(){
+        this.internalId = setInterval(() => {
+            this.isShow = !this.isShow
+        }, 1000);
+    },
+    beforeDestry(){// 死亡之前调用
+        // 清除定时器
+        clearInterval(this.internalId)
+    },
+    methods:{
+        destroyVM(){
+            this.$destroy()
+        }
+    },
+    
+})
+
+</script>
+
+</body>
+
+
+
+
+</html>
