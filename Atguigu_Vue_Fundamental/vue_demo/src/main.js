@@ -1,16 +1,14 @@
 import Vue from "vue";
 import App from "./App.vue";
+import store from './store';
 
-import router from './router';
+
+console.log(App);
 
 new Vue({
   el: "#app",
   components: { App },
   template: "<App/>",
-  router,
-  // render: h => h(app)
+  store,//添加 $store 对象
 });
 
-// const app = new Vue({
-//   router
-// }).$mount('#app')

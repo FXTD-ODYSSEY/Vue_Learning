@@ -1,22 +1,53 @@
 <template>
   <div>
-    <!--路由链接-->
-    <!-- <router-link to="/about">About</router-link>
-    <router-link to="/home">Home</router-link> -->
-    <!--用于渲染当前路由组件-->
-    <router-link to="/foo">Go to Foo</router-link>
-    <router-link to="/bar">Go to Bar</router-link>
-    <router-view></router-view>
+    <p>click {{  count }} times ,count is {{ evenOrOdd }}</p>
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <button @click="incrementIfOdd">increment if odd</button>
+    <button @click="incrementAsync">increment async</button>
   </div>
 </template>
 
 <script>
 
+import {mapState,mapGetters,mapActions} from 'vuex';
+import {test} from './test'; 
+
+console.log("test",test,[test]);
+console.log({[test](){}});
+
 export default {
- 
+  [test](state){
+    console.log(state);
+  },
+  computed: {
+    ...mapState(['count']),
+    ...mapGetters(['evenOrOdd'])
+
+    // evenOrOdd() {
+    //   return this.$store.getters.evenOrOdd  
+    // }
+  },
+  methods: {
+    
+    ...mapActions(['increment','decrement','incrementIfOdd','incrementAsync'])
+
+
+    // increment() {
+    //   this.$store.dispatch('increment')
+    // },
+    // decrement() {
+    //   this.$store.dispatch('decrement')
+    // },
+    // incrementIfOdd() {
+    //   this.$store.dispatch('incremetnIfOdd')
+    // },
+    // incrementAsync() {
+    //   this.$store.dispatch('incrementAsync')
+    // }
+  }
 };
 </script>
 
 <style>
-
 </style>
