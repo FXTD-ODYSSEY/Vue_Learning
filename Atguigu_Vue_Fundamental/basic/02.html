@@ -9,15 +9,15 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="username" >
-        <p>Hello {{username}} </p>
+        <input type="text" v-model="message" >
+        <p>Hello {{message}} </p>
     </div>
 <script>
 
 vm = new Vue({
     el:'#app',
     data:{
-        username : '',
+        message : 'Vue',
     },
 })
 </script>

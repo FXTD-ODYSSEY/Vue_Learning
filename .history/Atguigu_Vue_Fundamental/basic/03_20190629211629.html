@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板语法</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>1. 双多括号表达式</h2>
+        <p>{{msg}}</p>
+        <p>{{msg.toUpperCase()}}</p>
+        <p v-text="link"></p>
+        <p v-html="link"></p>
+
+        <h2>2. 指令一：强制数据绑定</h2>
+        <img src="imgUrl">
+        <img v-bind:src="imgUrl">
+        <img :src="imgUrl">
+
+        <h2>2. 指令二：绑定时间监听</h2>
+        <button v-on:click="click">点击事件1</button>
+        <button @click="click2(msg)">点击事件2</button>
+
+
+    </div>
+    <script>
+
+        vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'l0v0.com',
+                link: '<a href="https://blog.l0v0.com">blog.l0v0.com</a>',
+                imgUrl: 'https://cn.vuejs.org/images/logo.png',
+            },
+            methods: {
+                click() {
+                    alert('点击事件1触发')
+                },
+                click2(content){
+                    alert(content)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性和监视</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        姓：<input type="text" placeholder="First Name" v-model="firstName"><br>
+        名：<input type="text" placeholder="Last Name" v-model="lastName"><br>
+        姓名1：(单向)<input type="text" placeholder="Full Name1" v-model="fullname1"><br>
+        姓名2：(单向)<input type="text" placeholder="Full Name2" v-model="fullname2"><br>
+        姓名3：(双向)<input type="text" placeholder="Full Name3" v-model="fullname3"><br>
+    </div>
+<script>
+
+vm = new Vue({
+    el:'#app',
+    data:{
+        firstName : 'A',
+        lastName : 'B',
+    },
+    computed:{
+        fullname1 (){
+            return this.firstName + " " + this.lastName
+        },
+
+        fullname3:{
+            get (){
+                return this.firstName + ' ' + this.lastName
+            },
+            set (value){
+                const names = value.split(' ')
+                this.firstName = names[0]
+                this.lastName = names[1]
+            }
+        }
+    },
+    watch : {
+        firstName: function(value){
+            this.fullname2 = value + ' ' + this.lastName
+        },
+        lastName: function(value){
+            this.fullname2 = this.firstName + ' ' + value
+        }
+    }
+})
+</script>
+
+</body>
+
+
+
+
+</html>
