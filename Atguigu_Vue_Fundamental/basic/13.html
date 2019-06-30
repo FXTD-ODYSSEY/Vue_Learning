@@ -30,7 +30,7 @@
     v-cLoak：使用它防止闪现表达式，与css配合：[v-cloak]{display:none}
 -->
     <div id="demo">
-         <p>l0v0.com</p>
+         <p ref="content">l0v0.com</p>
          <button @click="hint">提示</button>
          <p>{{msg}}</p>
          <p v-cloak>{{msg}}</p>
