@@ -1,4 +1,3 @@
-y
 <template>
   <div>
     <img src="./assets/logo.png" alt="logo" class="logo">
