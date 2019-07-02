@@ -24,11 +24,11 @@
   const vm = new MVVM({
     el: "#test",
     data: {
-      name: '张三2'
+      name: 'www.l0v0.com'
     }
   })
   console.log(vm.name)  // 读取的是data中的name,  vm代理对data的读操作
-  vm.name = '李四2' // 数据保存到data中的name上, vm代理对data的写操作
+  vm.name = 'blog.l0v0.com' // 数据保存到data中的name上, vm代理对data的写操作
   console.log(vm.name, vm._data.name)
 
 

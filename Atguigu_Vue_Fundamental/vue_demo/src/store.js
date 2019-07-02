@@ -27,7 +27,7 @@ const actions = {
     // 提交到mutation
     commit('DECREMENT')
   },
-  incremetnIfOdd({ commit, state }) {
+  incrementIfOdd({ commit, state }) {
     // 提交到mutation
     if (state.count % 2 === 1) {
       commit('INCREMENT')

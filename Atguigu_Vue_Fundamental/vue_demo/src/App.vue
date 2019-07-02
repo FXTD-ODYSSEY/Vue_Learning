@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     
-    ...mapActions(['increment','decrement','incrementIfOdd','incrementAsync '])
+    ...mapActions(['increment','decrement','incrementIfOdd','incrementAsync'])
 
 
     // increment() {
