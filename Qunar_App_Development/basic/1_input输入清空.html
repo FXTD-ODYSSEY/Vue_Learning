@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1_input 输入清空</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>没有添加 input key</h1>
+        <div v-if="show">
+            用户名 <input/>
+        </div>
+        <div v-else>
+            邮箱名 <input/>
+        </div>
+        <br>
+        <button @click="changeShow">切换显示状态</button>
+        <h3>
+            切换显示状态之后，输入框没有被清空
+        </h3>
+        
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+
+        <h1>添加了 input key</h1>
+        <div v-if="show2">
+            用户名 <input key="username"/>
+        </div>
+        <div v-else>
+            邮箱名 <input key="password"/>
+        </div>
+        <br>
+        <button @click="changeShow2">切换显示状态</button>
+
+        <h3>
+            输入完成回车之后，输入有被清空
+        </h3>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el:"#app",
+            data : {
+                show:false,
+                show2:false,
+            },
+            methods:{
+                changeShow(){
+                    this.show = !this.show;
+                },
+                changeShow2(){
+                    this.show2 = !this.show2;
+                },
+            }
+        })
+    </script>
+</body>
+</html>
